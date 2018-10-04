@@ -8,11 +8,13 @@ import edu.cvtc.java.shapes.Models.Sphere;
 
 public class ShapesTest {
 	public static void main(String[] args) {
-	// Instantiating new object instances
-	Cuboid cuboid = new Cuboid(7.0f, 6.0f, 1.0f, new MessageBox());
-	Cylinder cylinder = new Cylinder(2, 10, new MessageBox());
-	Sphere sphere = new Sphere(7, new MessageBox());
-			
+
+	ShapeFactory shapeFactory = new ShapeFactory(new MessageBox());
+	
+	Cuboid cuboid = (Cuboid) shapeFactory.make(ShapeType.Cuboid);
+	Cylinder cylinder = (Cylinder) shapeFactory.make(ShapeType.Cylinder);
+	Sphere sphere = (Sphere) shapeFactory.make(ShapeType.Sphere);
+	
 	cuboid.render();
 	cylinder.render();
 	sphere.render();
